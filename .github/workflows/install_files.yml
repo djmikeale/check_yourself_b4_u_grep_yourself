@@ -10,4 +10,4 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Run install script
-        run: bash main.sh
+        run: bash new_machine_installation/main.sh

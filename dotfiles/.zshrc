@@ -68,6 +68,8 @@ alias -s md='bat'
 
 export EDITOR=code
 export MANPAGER="bat -plman"
+## give man and --help pages pretty colours
+#export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export CLICOLOR=1
 export VISUAL=code EDITOR=$VISUAL
 # export FZF_CTRL_T_COMMAND='rg --files'

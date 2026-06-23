@@ -37,9 +37,8 @@ homebrew_apps=(
     jq
     pyenv
     qrencode
+    stow
     tree
-    zsh-autosuggestions
-    zsh-syntax-highlighting
 )
 
 for app in "${homebrew_apps[@]}"; do
@@ -51,43 +50,11 @@ for app in "${homebrew_apps[@]}"; do
     fi
 done
 
-# Oh My Zsh
-echo "=== Installing oh-my-zsh ==="
-if [ ! -d "${ZSH:-$HOME/.oh-my-zsh}" ]; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-else
-    echo "✓ oh-my-zsh already installed"
-fi
-
-# give man and --help pages pretty colours
-append_if_missing ~/.zshrc 'export MANPAGER="sh -c '\''col -bx | bat -l man -p'\''"'
-append_if_missing ~/.zshrc "alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'"
-append_if_missing ~/.zshrc "alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'"
-
-# qrencode alias
-append_if_missing ~/.zshrc "alias qr='pbpaste | qrencode -t ansiutf8'"
-
-# Powerlevel10k
-echo "=== Installing Powerlevel10k theme ==="
-if [ ! -d "$HOME/powerlevel10k" ]; then
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
-    append_if_missing ~/.zshrc 'source ~/powerlevel10k/powerlevel10k.zsh-theme'
-else
-    echo "✓ Powerlevel10k already installed"
-fi
-
 # Pyenv setup
 echo "=== Setting up pyenv ==="
 global_python_version="3.12.6"
 pyenv install "$global_python_version"
 pyenv global "$global_python_version"
-
-
-# Zsh Plugins
-echo "=== Configuring Zsh plugins ==="
-append_if_missing ~/.zshrc "source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-append_if_missing ~/.zshrc "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-append_if_missing ~/.zshrc "source <(fzf --zsh)"
 
 # Cask Apps
 homebrew_cask_apps=(
@@ -114,7 +81,6 @@ for app in "${homebrew_cask_apps[@]}"; do
         brew install --cask "$app"
     fi
 done
-
 
 # Firefox
 if command -v firefox &>/dev/null; then
