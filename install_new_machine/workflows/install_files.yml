@@ -1,0 +1,13 @@
+name: Install Files
+
+on:
+  workflow_dispatch:
+
+jobs:
+  install:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Run install script
+        run: bash main.sh
