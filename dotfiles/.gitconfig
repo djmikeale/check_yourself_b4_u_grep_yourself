@@ -12,6 +12,8 @@
     editor = code --wait
 [fetch]
     prune = true
+[pull]
+    rebase = false
 [push]
     autoSetupRemote = true
     default = current

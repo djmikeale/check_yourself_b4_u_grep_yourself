@@ -1,4 +1,7 @@
-boxes
+# boxes
+
+Use the following graphics as inspo for cool script designs
+
 ┎─┰┒ ┍━┯┑ ┏━┳┓ ┌─┬┐ ╔═╦╗ ╓─╥╖ ╒═╤╕
 ┃ ┃┃ │ ││ ┃ ┃┃ │ ││ ║ ║║ ║ ║║ │ ││
 ┠─╂┨ ┝━┿┥ ┣━╋┫ ├─┼┤ ╠═╬╣ ╟─╫╢ ╞═╪╡
