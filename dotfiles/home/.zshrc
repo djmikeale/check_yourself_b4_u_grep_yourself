@@ -49,6 +49,8 @@ fi
 # alt + c to fuzzy cd into dirs
 source <(fzf --zsh)
 
+zinit light ajeetdsouza/zoxide
+
 # Suggest when I should have used an alias
 zinit ice wait lucid
 zinit light MichaelAquilina/zsh-you-should-use
@@ -67,21 +69,20 @@ alias -s md='bat'
 # ---------- exports ------------------------------
 
 export EDITOR=code
-export MANPAGER="bat -plman"
-## give man and --help pages pretty colours
-#export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+## give man and -h / --help pages pretty colours
+#export MANPAGER="bat -plman" #Ubuntu
+export MANPAGER="sh -c 'col -bx | bat -l man -p'" #MacOS
 export CLICOLOR=1
 export VISUAL=code EDITOR=$VISUAL
 # export FZF_CTRL_T_COMMAND='rg --files'
 # export FZF_ALT_C_COMMAND='fd . --type d'
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="/Users/mikaelthorup/.local/bin:$PATH"
 
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
-
-# source "$CONFIG_DIR"/functions.zsh
-# source "$CONFIG_DIR"/paths.zsh
 
 # ---------- misc ---------------------------------
 # Consider https://youtu.be/3fVAtaGhUyU?si=NSfXY2jLtrAfGGUO&t=851
@@ -94,3 +95,5 @@ compinit -C
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+eval "$(zoxide init zsh)"

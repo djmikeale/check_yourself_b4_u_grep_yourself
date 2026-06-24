@@ -1,12 +1,6 @@
 #!/bin/bash
 set -euo pipefail
 
-append_if_missing() {
-    local file=$1
-    local line=$2
-    grep -qxF "$line" "$file" 2>/dev/null || echo "$line" >> "$file"
-}
-
 # Install Homebrew if not already installed
 if ! command -v brew &>/dev/null; then
     echo "→ Installing Homebrew"
@@ -16,7 +10,6 @@ else
 fi
 
 # Make sure brew is in PATH
-append_if_missing ~/.zprofile 'eval "$(/opt/homebrew/bin/brew shellenv)"'
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Update Homebrew
@@ -39,6 +32,8 @@ homebrew_apps=(
     qrencode
     stow
     tree
+    uv
+    zoxide
 )
 
 for app in "${homebrew_apps[@]}"; do
@@ -50,11 +45,19 @@ for app in "${homebrew_apps[@]}"; do
     fi
 done
 
-# Pyenv setup
+# Pyenv
 echo "=== Setting up pyenv ==="
 global_python_version="3.12.6"
 pyenv install "$global_python_version"
 pyenv global "$global_python_version"
+
+# sqlfmt
+if ! command -v sqlfmt &>/dev/null; then
+    echo "→ Installing sqlfmt"
+    uv tool install "shandy-sqlfmt[jinjafmt]"
+else
+    echo "✓ sqlfmt already installed"
+fi
 
 # Cask Apps
 homebrew_cask_apps=(
@@ -62,13 +65,11 @@ homebrew_cask_apps=(
     bettertouchtool
     calibre
     firefox
-    google-chrome
     iterm2
     obsidian
     qobuz
     raycast
     slack
-    time-out
     transmission
     visual-studio-code
 )
@@ -86,6 +87,3 @@ done
 if command -v firefox &>/dev/null; then
     open -a "Firefox" --args --make-default-browser
 fi
-
-# Install/upgrade uv (Astral)
-curl -LsSf https://astral.sh/uv/install.sh | sh
