@@ -87,5 +87,6 @@ export VISUAL=code EDITOR=$VISUAL
 autoload -Uz compinit
 compinit -C
 
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
