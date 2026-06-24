@@ -55,14 +55,11 @@
         "editor.formatOnType": true // Automatically format code when typing
     },
     "python.interpreter.infoVisibility": "always", // Show interpreter information in the status bar
-    "python.venvPath": "~/lunar-way-hubble-transformations/.venv", // Set the path for the Python virtual environment
     "search.useGlobalIgnoreFiles": true, // Use global ignore files when searching for files
     "search.useParentIgnoreFiles": true, // Use parent ignore files when searching for files
     "screencastMode.mouseIndicatorSize": 30, // Set the size of the mouse indicator in screencast mode
     "scm.defaultViewMode": "tree", // Set the default view mode for the source control panel to tree
-    "sqlfluff.executablePath": "/Users/mikaelthorup/lunar-way-hubble-transformations/.venv/bin/sqlfluff", // Set the path for the SQLfluff executable
     "terminal.explorerKind": "external", // Use an external terminal instance when opening a new terminal in the explorer
-    "terminal.integrated.enableMultiLinePasteWarning": false, // Disable warning when pasting multiline text in the terminal
     "terminal.integrated.cursorStyle": "line", // Set the cursor style in the integrated terminal to a line
     "terminal.integrated.fontSize": 13, // Set the font size in the integrated terminal to 13
     "terminal.integrated.letterSpacing": 1, // Set the letter spacing in the integrated terminal to 1
@@ -74,5 +71,12 @@
     "gitlens.ai.model": "vscode",
     "gitlens.ai.vscode.model": "copilot:gpt-4.1",
     "security.workspace.trust.untrustedFiles": "open",
-    "terminal.integrated.suggest.enabled": false
+    "terminal.integrated.suggest.enabled": false,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "chat.tools.urls.autoApprove": {
+        "https://code.visualstudio.com": true,
+        "https://github.com/microsoft/vscode/wiki/*": true,
+        "https://www.earlybird.dk": true
+    }
 }

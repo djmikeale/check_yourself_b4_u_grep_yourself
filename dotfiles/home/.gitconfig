@@ -12,6 +12,10 @@
     editor = code --wait
 [fetch]
     prune = true
+[help]
+    autocorrect = 5
+[init]
+	defaultBranch = main
 [pull]
     rebase = false
 [push]
@@ -19,12 +23,8 @@
     default = current
 [status]
     short = true
+[url "git@github.com:"]
+    insteadOf = https://github.com/
 [user]
     email = mhthorup@gmail.com
     name = Mikael Thorup
-[help]
-    autocorrect = 5
-[url "git@github.com:"]
-    insteadOf = https://github.com/
-[init]
-	defaultBranch = main

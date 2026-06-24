@@ -74,7 +74,11 @@ export CLICOLOR=1
 export VISUAL=code EDITOR=$VISUAL
 # export FZF_CTRL_T_COMMAND='rg --files'
 # export FZF_ALT_C_COMMAND='fd . --type d'
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
 
 # source "$CONFIG_DIR"/functions.zsh
 # source "$CONFIG_DIR"/paths.zsh
