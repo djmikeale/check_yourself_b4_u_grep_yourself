@@ -8,6 +8,6 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Run install script
         run: bash new_machine_installation/main.sh
