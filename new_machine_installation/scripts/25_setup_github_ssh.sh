@@ -4,7 +4,7 @@ set -euo pipefail
 echo "=== Setting up GitHub SSH connection ==="
 
 # Prompt for email
-read -p "Enter your GitHub email: " MAIL
+read -r -p "Enter your GitHub email: " MAIL
 
 # Generate SSH key if not already present
 KEY_FILE="$HOME/.ssh/id_ed25519"
@@ -54,9 +54,9 @@ echo "SSH public key copied to clipboard."
 echo ""
 echo "Go to https://github.com/settings/ssh/new and paste the key."
 echo "Suggested title: '$(hostname)'"
-read -s -p "Press Enter to open the GitHub SSH keys page..."
+read -r -s -p "Press Enter to open the GitHub SSH keys page..."
 open https://github.com/settings/ssh/new
-read -s -p "Press Enter once you've added the key."
+read -r -s -p "Press Enter once you've added the key."
 
 # Test connection
 echo ""

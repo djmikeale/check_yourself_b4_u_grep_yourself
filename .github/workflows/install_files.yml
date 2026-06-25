@@ -9,5 +9,19 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
-      - name: Run install script
+
+      - name: Install shellcheck
+        run: |
+          brew update
+          brew install shellcheck || true
+
+      - name: Validate shell scripts
+        run: |
+          shellcheck **/*.sh
+          find . -name '*.sh' -print0 | xargs -0 -n1 bash -n
+
+      - name: Run non-interactive install script
+        env:
+          SKIP_INTERACTIVE: 'true'
+          CI: 'true'
         run: bash new_machine_installation/main.sh

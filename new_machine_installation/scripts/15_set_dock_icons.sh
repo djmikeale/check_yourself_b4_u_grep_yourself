@@ -161,7 +161,7 @@ for app in "${apps[@]}"; do
 done
 
 for folder in "${folders[@]}"; do
-    add_folder_to_dock $folder -a 2 -d 1 -v 3
+    add_folder_to_dock "$folder" -a 2 -d 1 -v 3
 done
 
 killall Dock
